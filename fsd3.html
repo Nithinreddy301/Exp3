@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Text and Container Color Change</title>
+  <style>
+    /* Basic styling for the container, text, and button */
+    .container {
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+    }
+
+    .text {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #changeButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="colorContainer">
+    <p class="text" id="changeText">Initial Text</p>
+  </div>
+
+  <button id="changeButton">Change State</button>
+
+  <script>
+    const button = document.getElementById('changeButton');
+    const container = document.getElementById('colorContainer');
+    const text = document.getElementById('changeText');
+
+    let isChanged = false;
+
+    button.addEventListener('click', () => {
+      if (!isChanged) {
+        // Change the button text, container color, and text
+        button.textContent = 'Revert State';
+        container.style.backgroundColor = 'lightblue';
+        text.textContent = 'Changed Text';
+      } else {
+        // Revert to the original state
+        button.textContent = 'Change State';
+        container.style.backgroundColor = 'lightgray';
+        text.textContent = 'Initial Text';
+      }
+
+      // Toggle the state
+      isChanged = !isChanged;
+    });
+  </script>
+
+</body>
+</html>
